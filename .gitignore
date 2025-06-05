@@ -1,5 +1,6 @@
 Webscraping_LeadGeneration.ipynb
-Web Scrapper/credentials.txt
+credentials.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
