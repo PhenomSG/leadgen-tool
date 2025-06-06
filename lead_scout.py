@@ -4,7 +4,7 @@ from textblob import TextBlob
 
 # Page setup
 st.set_page_config(layout="wide")
-st.title("🚀 NewsLead Scout (Demo)")
+st.title("NewsLead Scout (Demo)")
 st.subheader("Pitch Deck: AI-Powered Lead Generation from News")
 
 # Load the CSV data
@@ -29,10 +29,10 @@ df['lead_score'] = df.apply(calculate_score, axis=1)
 
 # Priority calculation
 def get_priority(score):
-    if score >= 3: return "🔥 Hot Lead"
-    elif score >= 1: return "💡 Warm Lead"
-    elif score >= 0: return "🤔 Neutral"
-    else: return "⚠️ Caution"
+    if score >= 3: return "High Potential Lead"
+    elif score >= 1: return "Mid Potential Lead"
+    elif score >= 0: return "Neutral Lead"
+    else: return "Caution"
 
 df['priority'] = df['lead_score'].apply(get_priority)
 
@@ -44,8 +44,8 @@ st.dataframe(df)
 st.subheader("Lead Quality Breakdown")
 col1, col2, col3 = st.columns(3)
 col1.metric("Total Companies", df['company'].nunique())
-col2.metric("Hot Leads", len(df[df['priority'] == "🔥 Hot Lead"]))
-col3.metric("Warning Signs", len(df[df['priority'] == "⚠️ Caution"]))
+col2.metric("Hot Leads", len(df[df['priority'] == "Hot Potential Lead"]))
+col3.metric("Warning Signs", len(df[df['priority'] == "Caution"]))
 
 # Visualizations
 st.subheader("Best Potential Leads")
