@@ -19,6 +19,7 @@ This approach allowed me to blend static datasets with dynamic data sources (new
 - **Python** (Pandas, Streamlit, BeautifulSoup, Requests, Selenium)
 - **TextBlob** for sentiment analysis
 - **Kaggle Dataset + LinkedIn scraping** for foundational company data
+- more on this in requirements.txt
 
 ### 2. **Dashboard Features**
 - Visual Analytics (Industry trends, LinkedIn followers vs. employee count)
