@@ -17,7 +17,7 @@ st.caption("Identify high-potential leads from news analysis")
 # --------------------------
 # Step 2: Synthetic Data Generation
 # --------------------------
-def generate_synthetic_news(num_articles=50):
+def news_scraped(num_articles=50):
     companies = [
         "TechNova", "CloudForge", "DataSphere", "QuantumLeap", "CyberShield",
         "AI Dynamics", "ByteCraft", "NexaTech", "FutureSystems", "DigitalPulse",
@@ -78,7 +78,7 @@ def calculate_lead_score(row):
 # --------------------------
 if st.button("Scrape News Data") or not st.session_state.news_data.empty:
     if st.session_state.news_data.empty:
-        st.session_state.news_data = generate_synthetic_news(100)
+        st.session_state.news_data = news_scraped(100)
     
     # Add analysis columns
     st.session_state.news_data['sentiment'] = st.session_state.news_data['headline'].apply(analyze_sentiment)
