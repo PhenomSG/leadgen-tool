@@ -17,7 +17,7 @@ page = st.sidebar.radio("Go to", ["Dashboard", "Company Search", "Lead Generator
 
 # Dashboard Page
 if page == "Dashboard":
-    st.title("📊 Company Data Dashboard")
+    st.title("Company Data Dashboard")
     st.subheader("Business Intelligence Insights")
     
     # Key metrics
@@ -56,15 +56,36 @@ if page == "Dashboard":
                      log_y=True)
     st.plotly_chart(fig3)
     
-    # Visualization 4: World Map
     st.subheader("Global Distribution")
-    country_counts = df['country_code'].value_counts().reset_index()
+
+    # Clean data: drop missing country codes and convert to string
+    df_clean = df.dropna(subset=['country_code'])
+    df_clean['country_code'] = df_clean['country_code'].astype(str).str.upper()  # Ensure uppercase ISO codes
+
+    # Count country occurrences
+    country_counts = df_clean['country_code'].value_counts().reset_index()
     country_counts.columns = ['country_code', 'count']
-    fig4 = px.choropleth(country_counts,
-                        locations="country_code",
-                        color="count",
-                        hover_name="country_code",
-                        projection="natural earth")
+
+    # Create choropleth map
+    fig4 = px.choropleth(
+        country_counts,
+        locations="country_code",
+        color="count",
+        hover_name="country_code",
+        projection="natural earth",
+        color_continuous_scale=px.colors.sequential.Plasma,  # Use a visible color scale
+        range_color=(0, country_counts['count'].max()),       # Explicit color range
+        scope="world"                                         # Ensure worldwide scope
+    )
+
+    # Enhance visibility of country boundaries
+    fig4.update_geos(
+        showcountries=True,    # Show country borders
+        countrycolor="Black",  # Border color
+        showocean=True,        # Highlight oceans
+        oceancolor="LightBlue" # Ocean color for contrast
+    )
+
     st.plotly_chart(fig4)
 
 # Company Search Page
