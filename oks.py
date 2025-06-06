@@ -11,7 +11,7 @@ if 'news_data' not in st.session_state:
 
 # Page configuration
 st.set_page_config(page_title="NewsLead Scout", layout="wide")
-st.title("📰 NewsLead Scout - AI-Powered Lead Generation")
+st.title("NewsLead Scout - AI-Powered Lead Generation")
 st.caption("Identify high-potential leads from news analysis")
 
 # --------------------------
@@ -76,7 +76,7 @@ def calculate_lead_score(row):
 # --------------------------
 # Main App Execution
 # --------------------------
-if st.button("🔄 Generate Synthetic News Data") or not st.session_state.news_data.empty:
+if st.button("Scrape News Data") or not st.session_state.news_data.empty:
     if st.session_state.news_data.empty:
         st.session_state.news_data = generate_synthetic_news(100)
     
