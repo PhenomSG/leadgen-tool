@@ -91,7 +91,7 @@ if st.button("Scrape News Data") or not st.session_state.news_data.empty:
     st.dataframe(st.session_state.news_data)
     
     # Dashboard
-    st.subheader("🔥 Lead Prioritization Dashboard")
+    st.subheader("Lead Prioritization Dashboard")
     
     # Aggregate scores
     company_scores = st.session_state.news_data.groupby('company').agg(
