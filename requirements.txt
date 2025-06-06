@@ -1,3 +1,14 @@
 requests
-beautifulsoup4
+bs4
+selenium
+re
+time
 pandas
+textblob
+streamlit
+ntlk
+plotly
+io
+numpy
+random 
+datetime
