@@ -1,7 +1,7 @@
 # AI-Powered Lead Generation Dashboard — Project Report
 
 **Submitted by:** Sahaj Gupta  
-**Challenge:** Reimagine part of SaaSquatchLeads in under 5 hours  
+**Challenge:** Reimagine part of SaaSquatchLeads + Innovate 
 **Approach:** Quality-first strategy focusing on impactful features + innovation
 
 ## Approach & Thought Process
